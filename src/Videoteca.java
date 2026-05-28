@@ -36,12 +36,11 @@ public class Videoteca {
 	}
 
 	public void apagarFilme(int numero) {
-		for( int i = 0; i < filmes.size() ; i++)
+		if( numero > 0 && numero <= filmes.size())
 		{
-			if(numero == i)
 				filmes.remove(numero - 1);
+				System.out.println("Filme apagado");
 		}
-		System.out.println("Método por desenvolver");
 		// Completa o método para apagar o filme
 		
 	}
