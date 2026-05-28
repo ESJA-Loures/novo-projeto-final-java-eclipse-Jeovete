@@ -14,32 +14,51 @@ public class Videoteca {
 
 	public void listarFilmes() {
 		// mostra o nome da videoteca
-		System.out.println("=== " + ("[Substituir] Nome da videoteca") + " ===");
+		System.out.println("=== " + nome + " ===");
 		// Testa primeiro se a videoteca tem filmes
-		
+		if(!filmes.isEmpty())
+		{
 			for (int i = 0; i < filmes.size(); i++) {
 				System.out.println((i + 1) + ". " + filmes.get(i));
 			}
 			System.out.println("======");
-		
+		}
+		else {
+			System.out.println("Videoteca vazia");
+		}
 	}
 	
 	
 	public void adicionarFilme(Filme filme) {
-		System.out.println("Método por desenvolver");
+		filmes.add(filme);
+		System.out.println("Filme adicionado");
 		// Completa o método para adicionar o filme
 	}
 
 	public void apagarFilme(int numero) {
+		for( int i = 0; i < filmes.size() ; i++)
+		{
+			if(numero == i)
+				filmes.remove(numero - 1);
+		}
 		System.out.println("Método por desenvolver");
 		// Completa o método para apagar o filme
 		
 	}
 	
-	public void editarFilme(int numero, String novoTitulo) {
-		// Falta acrescentar o atributo ano
-		filmes.get(numero - 1).setFilme(novoTitulo);
-		
-		
+	public void editarFilme(int numero, String novoTitulo, int novoAno) {
+
+	    if(numero > 0 && numero <= filmes.size()) {
+
+	        filmes.get(numero - 1).setFilme(novoTitulo, novoAno);
+
+	    } else {
+
+	        System.out.println("Filme não encontrado");
+
+	    }
+	}
+	public boolean temFilmes() {
+	    return !filmes.isEmpty();
 	}
 }
